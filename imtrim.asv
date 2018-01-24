@@ -1,0 +1,15 @@
+function imtrim(image, pixel)
+
+% rescale and trim image restricting larger side less than pixel value
+
+[row, col] = size(image); 
+
+if (row > pixel || col > pixel)
+    
+else
+    % if both side less than pixel value
+    % skip trimming
+    disp(");
+end
+
+end
