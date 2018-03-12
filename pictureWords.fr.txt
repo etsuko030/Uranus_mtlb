@@ -1,0 +1,501 @@
+﻿original	foreign
+pseudo-scorpion	pseudo-scorpion
+baracudda	baracudda
+blackamoor	Nègre
+faun	faune
+crucifix	crucifix
+exoplanet	exoplanète
+barracuda	barracuda
+limousine	limousine
+cockatoo	cacatoès
+tombstone	pierre tombale
+fraser	fraser
+giraffe	girafe
+sunset	coucher de soleil
+padlock	cadenas
+woman	femme
+stork	cigogne
+gravesite	tombe
+saint	saint
+eagle	aigle
+donkey	âne
+deity	déité
+clown	clown
+elephant	éléphant
+cow	la vache
+tiger	tigre
+mermaid	sirène
+stewardess	hôtesse de air
+kitten	chaton
+unicorn	licorne
+horseman	cavalier
+waterfall	chute de eau
+snowman	bonhomme de neige
+lighthouse	phare
+ethidium	éthidium
+wolf	loup
+lion	lion
+soldier	soldat
+snake	serpent
+swastika	swastika
+object	objet
+monkey	singe
+knight	chevalier
+cat	cat
+man	homme
+rattlesnake	crotale
+damsel	demoiselle
+butterfly	papillon
+serpent	serpent
+dragon	dragon
+skull	crâne
+fetus	foetus
+billboard	panneau de affichage
+dolphin	dauphin
+gorilla	gorille
+morphism	morphisme
+fingerprint	empreintes digitales
+firework	feu de artifice
+angel	ange
+bird	oiseaux
+meteor	météore
+bunny	bunny
+homomorphism	homomorphisme
+penguin	manchot
+owl	chouette
+teddy	peluche
+flower	fleur
+oscilloscope	oscilloscope
+ox	bœuf
+girl	fille
+fiend	démon
+planet	planète
+spider	araignée
+guy	Guy
+painting	peinture
+duck	canard
+cobra	cobra
+lady	dame
+skeleton	squelette
+pyramid	pyramide
+statue	statue
+scene	scène
+peacock	paon
+witch	sorcière
+commonwealth	du Commonwealth
+dinosaur	dinosaure
+indent	tiret
+pumpkin	citrouille
+windmill	moulin à vent
+cowboy	cow-boy
+airplane	avion
+rainbow	arc en ciel
+sportsman	sportif
+apple	Apple
+plough	charrue
+kangaroo	kangourou
+dog	chien
+parrot	Parrot
+turtle	tortue
+moose	orignal
+baby	bébé
+boy	garçon
+vase	vase
+rabbit	lapin
+star	étoiles
+person	personne
+galaxy	galaxie
+swan	cygne
+stag	cerf
+cube	cube
+orb	orbe
+pig	de porcs
+comet	comète
+tree	arbre
+alligator	alligator
+demon	démon
+cross-section	section
+scientist	scientifique
+castle	château
+bull	taureau
+nun	religieuse
+barn	grange
+child	enfant
+phoenix	Phoenix
+distraction	distraction
+ant	fourmi
+candle	bougie
+sculpture	sculpture
+circle	cercle
+brand-new	flambant neuf
+sunflower	de tournesol
+graveyard	cimetière
+hamburger	hamburger
+iceberg	iceberg
+mosque	mosquée
+sphere	sphère
+zebra	zèbre
+triangle	triangle
+turkey	Turquie
+machine	machine
+keyboard	clavier
+corpse	cadavre
+globe	monde
+astronaut	astronaute
+shepherd	berger
+kid	enfant
+puppy	chiot
+koala	koala
+fox	renard
+patient	patient
+shark	requin
+sailor	marin
+infant	infantile
+mural	murale
+fairy	fée
+chick	poussin
+pipe	pipe
+kite	cerf-volant
+celebrity	célébrité
+slowdown	ralentissement
+mountain	montagne
+landscape	paysage
+volcano	volcan
+house	maison
+ghost	fantôme
+animal	des animaux
+horse	cheval
+freeway	autoroute
+clock	horloge
+goddess	déesse
+cake	gâteau
+face	face
+gun	armes à feu
+warrior	guerrier
+politician	politicien
+creature	créature
+cavern	caverne
+tornado	tornade
+diver	plongeur
+mushroom	champignons
+atom	atome
+robbery	vol qualifié
+banana	la banane
+puppet	marionnettes
+economist	économiste
+priest	prêtre
+photograph	photographie
+ob	OB
+fisherman	pêcheur
+goo	goo
+plane	plan
+beetle	coléoptère
+cop	flic
+goat	de chèvre
+librarian	bibliothécaire
+dude	mec
+lake	lac
+prisoner	prisonnier
+whale	baleine
+car	voiture
+ship	navire
+truck	camion
+slice	tranche
+toddler	tout-petits
+couple	couple
+athlete	athlète
+fish	poissons
+bat	chauve-souris
+character	caractère
+bicycle	vélo
+eye	oeil
+cucumber	concombre
+bridge	pont
+sheep	moutons
+leaf	feuilles
+fountain	fontaine
+wizard	Assistant
+lock	verrouillage
+cigarette	cigarette
+lamb	agneau
+continent	continent
+folder	dossier
+mother	mère
+arrow	arrow
+monster	monstre
+cutie	cutie
+society	la société
+poster	affiche
+building	bâtiment
+bomb	bombe
+item	Point
+plump	dodu
+necklace	collier
+rectangle	rectangle
+rebel	rebelles
+picture	image
+sample	échantillon
+cheerleader	pom-pom girl
+mouse	la souris
+train	train
+river	rivière
+ruler	règle
+motorcycle	moto
+molecule	molécule
+map	la carte
+sign	Inscrivez-vous
+city	ville
+boat	bateau
+snow	la neige
+document	document
+hero	héros
+temple	temple
+church	église
+dancer	danseur
+backdrop	toile de fond
+pitcher	cruche
+nation	nation
+disk	disque
+hand	main
+spiral	spirale
+cloud	nuage
+chair	président
+quilt	courtepointe
+crown	couronne
+beach	plage
+nail	ongles
+vertex	sommet
+chicken	poulet
+flag	drapeau
+egg	oeuf
+ladder	échelle
+lamp	lampe
+organisation	organisation
+diffraction	diffraction
+street	rue
+scream	cri
+knife	couteau
+tomato	tomate
+bride	mariée
+passport	passeport
+friend	ami
+robot	robot
+company	entreprise
+landmark	point de repère
+neighborhood	quartier
+plant	plantes
+gentleman	gentilhomme
+product	produit
+teenager	adolescent
+organ	organe
+king	roi
+signature	signature
+mask	masque
+particle	particules
+seal	joint
+lemon	citron
+lip	lèvres
+bike	vélo
+actor	acteur
+helicopter	hélicoptère
+enemy	ennemi
+ball	boule
+country	pays
+hole	trou
+toy	jouets
+totem	totem
+forest	des forêts
+fist	poing
+par	nominale
+envelope	enveloppe
+un	Nations Unies
+cottage	chalet
+room	chambre
+hurricane	ouragan
+stamp	timbre
+bullet	bullet
+brain	cerveau
+figure	figure
+window	fenêtre
+disc	disque
+pole	pôle
+toilet	toilettes
+world	monde
+camera	appareil photo
+target	cible
+situation	situation
+heart	coeur
+smiley	smiley
+organization	organisation
+photographer	photographe
+bus	bus
+model	modèle
+logo	logo
+family	famille
+pond	étang
+destination	destination
+letter	lettre
+brand	marque
+region	région
+defect	défaut
+hat	chapeau
+sword	épée
+sin	le péché
+bottle	bouteille
+bell	Bell
+element	élément
+quantum	quantique
+page	page
+flame	la flamme
+partition	partition
+point	point
+cell	cellulaire
+CD	CD
+murder	assassiner
+orange	orange
+nucleus	noyau
+wheel	roue
+photo	photo
+event	événement
+tank	réservoir
+candidate	candidat
+shoe	chaussures
+storm	tempête
+haven	havre
+clip	clip
+leg	la jambe
+underwear	sous-vêtements
+table	table
+moment	moment
+leader	chef de file
+sun	soleil
+journey	voyage
+tongue	la langue
+outfit	tenue
+non	non
+wall	mur
+economy	économie
+farm	ferme
+universe	univers
+sub	sous
+pantyhose	collants
+artwork	œuvres de art
+artist	artiste
+place	place
+town	ville
+crowd	foule
+profession	profession
+area	région
+surface	surface
+entity	entité
+garden	jardin
+writer	écrivain
+battery	batterie
+secretary	secrétaire
+soul	âme
+wound	plaie
+crack	crack
+book	livre
+institution	institution
+dream	rêve
+father	père
+computer	ordinateur
+hip	de la hanche
+finger	doigt
+interval	intervalle de
+mouth	la bouche
+section	article
+crystal	cristal
+box	boîte
+phenomenon	phénomène
+com	com
+aircraft	aéronefs
+printer	imprimante
+door	porte
+pre	pré
+edge	bord
+rock	rock
+camp	camp
+guitar	guitare
+word	mot
+corporation	société
+career	carrière
+cream	crème
+community	communauté
+sailing	voile
+lifetime	durée de vie
+body	corps
+image	image
+piano	piano
+curve	courbe
+epidemic	épidémie
+era	ère
+con	con
+sequence	séquence
+slide	diapositive
+classroom	salle de classe
+culture	la culture
+plate	plaque
+head	tête
+vehicle	véhicule
+grid	grille
+lawyer	avocat
+industry	industrie
+film	film
+self	auto
+student	étudiant
+ear	oreille
+pleasure	plaisir
+cup	Coupe
+mirror	miroir
+gel	gel
+village	village
+device	dispositif de
+band	bande
+university	université
+fire	le feu
+pattern	modèle
+television	la télévision
+thing	chose
+button	bouton
+ad	ad
+segment	segment
+sport	le sport
+tumor	tumeur
+reality	la réalité
+graph	graphique
+rat	rat
+line	ligne
+restaurant	restaurant
+park	parc
+bug	bug
+phone	téléphone
+casino	casino
+calendar	calendrier
+skin	la peau
+album	album
+professor	professeur
+road	route
+football	football
+bikini	bikini
+path	chemin
+electron	électronique
+stream	flux
+field	sur le terrain
+incident	incident
+election	élection
+hair	cheveux
+lingerie	lingerie
+teacher	enseignant
+officer	agent
+kitchen	cuisine
+life	la vie
+TV	TV
+school	école
+island	île
+stuff	slideshows
+topic	le sujet
+node	noeud
+transition	transition
+middle	milieu
+bed	lit

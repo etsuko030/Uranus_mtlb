@@ -1,30 +1,155 @@
-all_test50chs = imageDatastore('E:\All-Subset-initialFiltered\initial-test50\all-lesser\chs','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames','ReadFcn',@customReaderImage);
-all_test50eng = imageDatastore('E:\All-Subset-initialFiltered\initial-test50\all-lesser\eng','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames','ReadFcn',@customReaderImage);
 
-all_test50chsBOF = encode(bigbag, all_test50chs); all_test50engBOF = encode(bigbag, all_test50eng);
-all_test50chsHu = computeHuMomentsData(all_test50chs); all_test50engHu = computeHuMomentsData(all_test50eng);
-all_test50engHu_log = log(abs(all_test50engHu)+1e-100); all_test50chsHu_log = log(abs(all_test50chsHu)+1e-100);
-all_test50chsColour = computeRGBHistData(all_test50chs, 4, 0); all_test50engColour = computeRGBHistData(all_test50eng, 4, 0);
+set_seed_01_chs = imageDatastore('E:\_seed_set_50\01\chs','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_seed_01_eng = imageDatastore('E:\_seed_set_50\01\eng','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_seed_01_chs.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
+set_seed_01_eng.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
 
-all_test50chsZ = computeZernikeMomentData(all_test50chs); all_test50engZ = computeZernikeMomentData(all_test50eng);
+set_seed_01_chs_ft = activations(net, set_seed_01_chs, layer);
+set_seed_01_eng_ft = activations(net, set_seed_01_eng, layer);
+
+set_seed_01_chs_classifier = TreeBagger(100, set_seed_01_chs_ft, set_seed_01_chs.Labels);
+set_seed_01_eng_classifier = TreeBagger(100, set_seed_01_eng_ft, set_seed_01_eng.Labels);
+
+set_seed_01_chs_predict = predict(set_seed_01_chs_classifier, set_seed_01_chs_ft);
+table_set_seed_01_chs = listSVMResult(categorical(set_seed_01_chs_predict), set_seed_01_chs.Labels);
+set_seed_01_eng_predict = predict(set_seed_01_eng_classifier, set_seed_01_eng_ft);
+table_set_seed_01_eng = listSVMResult(categorical(set_seed_01_eng_predict), set_seed_01_eng.Labels);
+
+flagging_01_chs_predict = predict(set_seed_01_chs_classifier, set_original_01_chs_ft);
+table_flagging_01_chs = listSVMResult(categorical(flagging_01_chs_predict), set_seed_01_chs.Labels);
+flagging_01_eng_predict = predict(set_seed_01_eng_classifier, set_original_01_eng_ft);
+table_flagging_01_eng = listSVMResult(categorical(flagging_01_eng_predict), set_seed_01_eng.Labels);
+
+flagging_01_chs = correctSampleSelection(categorical(flagging_01_chs_predict), set_original_01_chs.Labels);
+flagging_01_eng = correctSampleSelection(categorical(flagging_01_eng_predict), set_original_01_eng.Labels);
+
+info_filter_01_chs = designatedFilter('E:\_cropped_set_01-03\01-3c\chs', 'E:\_cropped_set_01-03\01-filtered-L7\chs', flagging_01_chs);
+info_filter_01_eng = designatedFilter('E:\_cropped_set_01-03\01-3c\eng', 'E:\_cropped_set_01-03\01-filtered-L7\eng', flagging_01_eng);
 
 
-all_test50chsVec = horzcat(all_test50chsHu_log, all_test50chsColour, all_test50chsBOF); all_test50engVec = horzcat(all_test50engHu_log, all_test50engColour, all_test50engBOF);
+set_filtered_01_chs = imageDatastore('E:\_cropped_set_01-03\01-filtered-L7\chs','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_filtered_01_eng = imageDatastore('E:\_cropped_set_01-03\01-filtered-L7\eng','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_filtered_01_chs.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
+set_filtered_01_eng.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
+
+set_filtered_01_chs_ft = activations(net, set_filtered_01_chs, layer);
+set_filtered_01_eng_ft = activations(net, set_filtered_01_eng, layer);
+
+set_filtered_01_chs_seed_classifier = TreeBagger(100, set_filtered_01_chs_ft, set_filtered_01_chs.Labels);
+set_filtered_01_eng_seed_classifier = TreeBagger(100, set_filtered_01_eng_ft, set_filtered_01_eng.Labels);
 
 
-all_test50svmmlpE2C = multisvm2(all_test50chsVec, all_test50chs.Labels, all_test50engVec);
-all_test50svmmlpC2E = multisvm2(all_test50engVec, all_test50eng.Labels, all_test50chsVec);
 
-all_test50E2C_result = listSVMResult(all_test50svmmlpE2C, all_test50eng.Labels); all_test50C2E_result = listSVMResult(all_test50svmmlpC2E, all_test50chs.Labels);
+% eng -> chs
+set_filtered_01_chs_eng_predict = predict(set_filtered_01_chs_seed_classifier, set_filtered_01_eng_ft);
+table_set_filtered_01_chs_eng = listSVMResult(categorical(set_filtered_01_chs_eng_predict), set_filtered_01_eng.Labels);
+% chs -> eng
+set_filtered_01_eng_chs_predict = predict(set_filtered_01_eng_seed_classifier, set_filtered_01_chs_ft);
+table_set_filtered_01_eng_chs = listSVMResult(categorical(set_filtered_01_eng_chs_predict), set_filtered_01_chs.Labels);
 
-all_test50svmmlpE2C_BOFonly = multisvm2(all_test50chsBOF, all_test50chs.Labels, all_test50engBOF); all_test50svmmlpC2E_BOFonly = multisvm2(all_test50engBOF, all_test50eng.Labels, all_test50chsBOF);
-all_test50E2C_BOFonly_result = listSVMResult(all_test50svmmlpE2C_BOFonly, all_test50eng.Labels); all_test50C2E_BOFonly_result = listSVMResult(all_test50svmmlpC2E_BOFonly, all_test50chs.Labels);
 
-all_test50svmmlpE2C_HUonly = multisvm2(all_test50chsHu_log, all_test50chs.Labels, all_test50engHu_log); all_test50svmmlpC2E_HUonly = multisvm2(all_test50engHu_log, all_test50eng.Labels, all_test50chsHu_log);
-all_test50E2C_HUonly_result = listSVMResult(all_test50svmmlpE2C_HUonly, all_test50eng.Labels); all_test50C2E_HUonly_result = listSVMResult(all_test50svmmlpC2E_HUonly, all_test50chs.Labels);
 
-all_test50svmmlpE2C_Conly = multisvm2(all_test50chsColour, all_test50chs.Labels, all_test50engColour); all_test50svmmlpC2E_Conly = multisvm2(all_test50engColour, all_test50eng.Labels, all_test50chsColour);
-all_test50E2C_Conly_result = listSVMResult(all_test50svmmlpE2C_Conly, all_test50eng.Labels); all_test50C2E_Conly_result = listSVMResult(all_test50svmmlpC2E_Conly, all_test50chs.Labels);
 
-all_test50svmmlpE2C_Zonly = multisvm2(all_test50chsZ, all_test50chs.Labels, all_test50engZ); all_test50svmmlpC2E_Zonly = multisvm2(all_test50engZ, all_test50eng.Labels, all_test50chsZ);
-all_test50E2C_Zonly_result = listSVMResult(all_test50svmmlpE2C_Zonly, all_test50eng.Labels); all_test50C2E_Zonly_result = listSVMResult(all_test50svmmlpC2E_Zonly, all_test50chs.Labels);
+
+% 02
+
+set_seed_02_chs = imageDatastore('E:\_seed_set_50\02\chs','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_seed_02_eng = imageDatastore('E:\_seed_set_50\02\eng','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_seed_02_chs.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
+set_seed_02_eng.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
+
+set_seed_02_chs_ft = activations(net, set_seed_02_chs, layer);
+set_seed_02_eng_ft = activations(net, set_seed_02_eng, layer);
+
+set_seed_02_chs_classifier = TreeBagger(100, set_seed_02_chs_ft, set_seed_02_chs.Labels);
+set_seed_02_eng_classifier = TreeBagger(100, set_seed_02_eng_ft, set_seed_02_eng.Labels);
+
+set_seed_02_chs_predict = predict(set_seed_02_chs_classifier, set_seed_02_chs_ft);
+table_set_seed_02_chs = listSVMResult(categorical(set_seed_02_chs_predict), set_seed_02_chs.Labels);
+set_seed_02_eng_predict = predict(set_seed_02_eng_classifier, set_seed_02_eng_ft);
+table_set_seed_02_eng = listSVMResult(categorical(set_seed_02_eng_predict), set_seed_02_eng.Labels);
+
+flagging_02_chs_predict = predict(set_seed_02_chs_classifier, set_original_02_chs_ft);
+table_flagging_02_chs = listSVMResult(categorical(flagging_02_chs_predict), set_seed_02_chs.Labels);
+flagging_02_eng_predict = predict(set_seed_02_eng_classifier, set_original_02_eng_ft);
+table_flagging_02_eng = listSVMResult(categorical(flagging_02_eng_predict), set_seed_02_eng.Labels);
+
+flagging_02_chs = correctSampleSelection(categorical(flagging_02_chs_predict), set_original_02_chs.Labels);
+flagging_02_eng = correctSampleSelection(categorical(flagging_02_eng_predict), set_original_02_eng.Labels);
+
+info_filter_02_chs = designatedFilter('E:\_cropped_set_01-03\02-3c\chs', 'E:\_cropped_set_01-03\02-filtered-L7\chs', flagging_02_chs);
+info_filter_02_eng = designatedFilter('E:\_cropped_set_01-03\02-3c\eng', 'E:\_cropped_set_01-03\02-filtered-L7\eng', flagging_02_eng);
+
+
+set_filtered_02_chs = imageDatastore('E:\_cropped_set_01-03\02-filtered-L7\chs','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_filtered_02_eng = imageDatastore('E:\_cropped_set_01-03\02-filtered-L7\eng','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_filtered_02_chs.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
+set_filtered_02_eng.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
+
+set_filtered_02_chs_ft = activations(net, set_filtered_02_chs, layer);
+set_filtered_02_eng_ft = activations(net, set_filtered_02_eng, layer);
+
+set_filtered_02_chs_seed_classifier = TreeBagger(100, set_filtered_02_chs_ft, set_filtered_02_chs.Labels);
+set_filtered_02_eng_seed_classifier = TreeBagger(100, set_filtered_02_eng_ft, set_filtered_02_eng.Labels);
+
+
+
+% eng -> chs
+set_filtered_02_chs_eng_predict = predict(set_filtered_02_chs_seed_classifier, set_filtered_02_eng_ft);
+table_set_filtered_02_chs_eng = listSVMResult(categorical(set_filtered_02_chs_eng_predict), set_filtered_02_eng.Labels);
+% chs -> eng
+set_filtered_02_eng_chs_predict = predict(set_filtered_02_eng_seed_classifier, set_filtered_02_chs_ft);
+table_set_filtered_02_eng_chs = listSVMResult(categorical(set_filtered_02_eng_chs_predict), set_filtered_02_chs.Labels);
+
+
+
+
+% 03
+
+set_seed_03_chs = imageDatastore('E:\_seed_set_50\03\chs','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_seed_03_eng = imageDatastore('E:\_seed_set_50\03\eng','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_seed_03_chs.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
+set_seed_03_eng.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
+
+set_seed_03_chs_ft = activations(net, set_seed_03_chs, layer);
+set_seed_03_eng_ft = activations(net, set_seed_03_eng, layer);
+
+set_seed_03_chs_classifier = TreeBagger(100, set_seed_03_chs_ft, set_seed_03_chs.Labels);
+set_seed_03_eng_classifier = TreeBagger(100, set_seed_03_eng_ft, set_seed_03_eng.Labels);
+
+set_seed_03_chs_predict = predict(set_seed_03_chs_classifier, set_seed_03_chs_ft);
+table_set_seed_03_chs = listSVMResult(categorical(set_seed_03_chs_predict), set_seed_03_chs.Labels);
+set_seed_03_eng_predict = predict(set_seed_03_eng_classifier, set_seed_03_eng_ft);
+table_set_seed_03_eng = listSVMResult(categorical(set_seed_03_eng_predict), set_seed_03_eng.Labels);
+
+flagging_03_chs_predict = predict(set_seed_03_chs_classifier, set_original_03_chs_ft);
+table_flagging_03_chs = listSVMResult(categorical(flagging_03_chs_predict), set_seed_03_chs.Labels);
+flagging_03_eng_predict = predict(set_seed_03_eng_classifier, set_original_03_eng_ft);
+table_flagging_03_eng = listSVMResult(categorical(flagging_03_eng_predict), set_seed_03_eng.Labels);
+
+flagging_03_chs = correctSampleSelection(categorical(flagging_03_chs_predict), set_original_03_chs.Labels);
+flagging_03_eng = correctSampleSelection(categorical(flagging_03_eng_predict), set_original_03_eng.Labels);
+
+info_filter_03_chs = designatedFilter('E:\_cropped_set_01-03\03-3c\chs', 'E:\_cropped_set_01-03\03-filtered-L7\chs', flagging_03_chs);
+info_filter_03_eng = designatedFilter('E:\_cropped_set_01-03\03-3c\eng', 'E:\_cropped_set_01-03\03-filtered-L7\eng', flagging_03_eng);
+
+
+set_filtered_03_chs = imageDatastore('E:\_cropped_set_01-03\03-filtered-L7\chs','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_filtered_03_eng = imageDatastore('E:\_cropped_set_01-03\03-filtered-L7\eng','IncludeSubfolders',true,'FileExtensions','.png','LabelSource','foldernames');
+set_filtered_03_chs.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
+set_filtered_03_eng.ReadFcn = @(loc)imresize(imread(loc),[227,227]);
+
+set_filtered_03_chs_ft = activations(net, set_filtered_03_chs, layer);
+set_filtered_03_eng_ft = activations(net, set_filtered_03_eng, layer);
+
+set_filtered_03_chs_seed_classifier = TreeBagger(100, set_filtered_03_chs_ft, set_filtered_03_chs.Labels);
+set_filtered_03_eng_seed_classifier = TreeBagger(100, set_filtered_03_eng_ft, set_filtered_03_eng.Labels);
+
+
+
+% eng -> chs
+set_filtered_03_chs_eng_predict = predict(set_filtered_03_chs_seed_classifier, set_filtered_03_eng_ft);
+table_set_filtered_03_chs_eng = listSVMResult(categorical(set_filtered_03_chs_eng_predict), set_filtered_03_eng.Labels);
+% chs -> eng
+set_filtered_03_eng_chs_predict = predict(set_filtered_03_eng_seed_classifier, set_filtered_03_chs_ft);
+table_set_filtered_03_eng_chs = listSVMResult(categorical(set_filtered_03_eng_chs_predict), set_filtered_03_chs.Labels);

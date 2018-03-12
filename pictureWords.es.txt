@@ -1,0 +1,501 @@
+﻿original	foreign
+pseudo-scorpion	pseudo-escorpión
+baracudda	baracudda
+blackamoor	moro
+faun	fauno
+crucifix	crucifijo
+exoplanet	exoplaneta
+barracuda	barracuda
+limousine	limusina
+cockatoo	cacatúa
+tombstone	lápida sepulcral
+fraser	fraser
+giraffe	jirafa
+sunset	puesta del sol
+padlock	candado
+woman	mujer
+stork	cigüeña
+gravesite	tumba
+saint	santo
+eagle	águila
+donkey	burro
+deity	deidad
+clown	payaso
+elephant	elefante
+cow	vaca
+tiger	tigre
+mermaid	sirena
+stewardess	azafata
+kitten	gatito
+unicorn	unicornio
+horseman	jinete
+waterfall	cascada
+snowman	muñeco de nieve
+lighthouse	faro
+ethidium	etidio
+wolf	lobo
+lion	león
+soldier	soldado
+snake	serpiente
+swastika	esvástica
+object	objeto
+monkey	mono
+knight	caballero
+cat	gato
+man	hombre
+rattlesnake	serpiente de cascabel
+damsel	damisela
+butterfly	mariposa
+serpent	serpiente
+dragon	dragón
+skull	cráneo
+fetus	feto
+billboard	cartelera
+dolphin	delfines
+gorilla	gorila
+morphism	morfismo
+fingerprint	huella digital
+firework	fuegos artificiales
+angel	ángel
+bird	aves
+meteor	meteoro
+bunny	vacaciones
+homomorphism	homomorfismo
+penguin	pingüino
+owl	lechuza
+teddy	peluche
+flower	flor
+oscilloscope	osciloscopio
+ox	buey
+girl	chica
+fiend	demonio
+planet	planeta
+spider	araña
+guy	chico
+painting	pintura
+duck	pato
+cobra	cobra
+lady	dama
+skeleton	esqueleto
+pyramid	pirámide
+statue	estatua
+scene	escena
+peacock	pavo real
+witch	bruja
+commonwealth	mancomunidad
+dinosaur	dinosaurio
+indent	guión
+pumpkin	calabaza
+windmill	molino de viento
+cowboy	vaquero
+airplane	avión
+rainbow	del arco iris
+sportsman	deportista
+apple	manzana
+plough	arado
+kangaroo	canguro
+dog	perro
+parrot	loro
+turtle	tortuga
+moose	alce
+baby	bebé
+boy	niño
+vase	florero
+rabbit	conejo
+star	estrellas
+person	persona
+galaxy	galaxia
+swan	cisne
+stag	ciervo
+cube	cubo
+orb	orbe
+pig	de cerdo
+comet	cometa
+tree	árbol
+alligator	caimán
+demon	demonio
+cross-section	sección transversal
+scientist	científico
+castle	castillo
+bull	toro
+nun	monja
+barn	granero
+child	niño
+phoenix	fénix
+distraction	distracción
+ant	hormiga
+candle	vela
+sculpture	escultura
+circle	círculo
+brand-new	flamante
+sunflower	girasol
+graveyard	cementerio
+hamburger	hamburguesa
+iceberg	iceberg
+mosque	mezquita
+sphere	esfera
+zebra	cebra
+triangle	triángulo
+turkey	pavo
+machine	máquina
+keyboard	teclado
+corpse	cadáver
+globe	mundo
+astronaut	astronauta
+shepherd	pastor
+kid	niño
+puppy	cachorro
+koala	koala
+fox	zorro
+patient	paciente
+shark	tiburón
+sailor	marinero
+infant	infantil
+mural	mural
+fairy	de hadas
+chick	pollo
+pipe	tubería
+kite	cometa
+celebrity	celebridad
+slowdown	desaceleración
+mountain	montaña
+landscape	paisaje
+volcano	volcán
+house	casa
+ghost	fantasma
+animal	animales
+horse	caballo
+freeway	autopista
+clock	reloj
+goddess	diosa
+cake	torta
+face	la cara
+gun	pistola
+warrior	guerrero
+politician	político
+creature	criatura
+cavern	caverna
+tornado	tornado
+diver	buzo
+mushroom	seta
+atom	átomo
+robbery	robo
+banana	banano
+puppet	títere
+economist	economista
+priest	sacerdote
+photograph	fotografía
+ob	ob
+fisherman	pescador
+goo	Goo
+plane	plano
+beetle	escarabajo
+cop	policía
+goat	cabra
+librarian	bibliotecario
+dude	amigo
+lake	lago
+prisoner	preso
+whale	ballena
+car	coche
+ship	buque
+truck	camión
+slice	rebanada
+toddler	niño
+couple	Pareja
+athlete	atleta
+fish	peces
+bat	murciélago
+character	carácter
+bicycle	bicicleta
+eye	ojo
+cucumber	pepino
+bridge	puente
+sheep	ovejas
+leaf	de la hoja
+fountain	fuente
+wizard	asistente
+lock	bloqueo
+cigarette	cigarrillos
+lamb	cordero
+continent	continente
+folder	carpeta
+mother	madre
+arrow	flecha
+monster	monstruo
+cutie	chica
+society	la sociedad
+poster	anunciante
+building	la construcción de
+bomb	bomba
+item	tema
+plump	gordo
+necklace	collar
+rectangle	rectángulo
+rebel	rebelde
+picture	foto
+sample	muestra
+cheerleader	animador
+mouse	del ratón
+train	tren
+river	río
+ruler	regla
+motorcycle	motocicleta
+molecule	molécula
+map	mapa
+sign	signo
+city	de la ciudad
+boat	barco
+snow	la nieve
+document	documento
+hero	héroe
+temple	templo
+church	Iglesia
+dancer	bailarina
+backdrop	telón de fondo
+pitcher	lanzador
+nation	nación
+disk	disco
+hand	mano
+spiral	espiral
+cloud	nube
+chair	Silla
+quilt	edredón
+crown	corona
+beach	Playa
+nail	uñas
+vertex	vértice
+chicken	pollo
+flag	bandera
+egg	huevo
+ladder	escalera
+lamp	lámpara
+organisation	organización
+diffraction	difracción
+street	calle
+scream	gritar
+knife	cuchillo
+tomato	tomate
+bride	novia
+passport	pasaporte
+friend	amigo
+robot	robot
+company	empresa
+landmark	hito
+neighborhood	barrio
+plant	planta
+gentleman	caballero
+product	producto
+teenager	adolescente
+organ	órgano
+king	rey
+signature	firma
+mask	máscara
+particle	de partículas
+seal	sello
+lemon	limón
+lip	labio
+bike	bicicleta
+actor	actor
+helicopter	helicóptero
+enemy	enemigo
+ball	bola
+country	país
+hole	agujero
+toy	juguete
+totem	tótem
+forest	forestales
+fist	puño
+par	par
+envelope	sobre
+un	de las Naciones Unidas
+cottage	casa de campo
+room	sala de
+hurricane	huracán
+stamp	sello
+bullet	bala
+brain	cerebro
+figure	figura
+window	ventana
+disc	disco
+pole	polo
+toilet	WC
+world	mundo
+camera	cámara
+target	objetivo
+situation	situación
+heart	corazón
+smiley	sonriente
+organization	organización
+photographer	fotógrafo
+bus	autobús
+model	modelo
+logo	logotipo
+family	familia
+pond	estanque
+destination	destino
+letter	carta
+brand	marca
+region	región
+defect	defecto
+hat	sombrero
+sword	espada
+sin	el pecado
+bottle	botella
+bell	Bell
+element	elemento
+quantum	cuántica
+page	página
+flame	llama
+partition	partición
+point	punto
+cell	celular
+CD	CD
+murder	asesinato
+orange	naranja
+nucleus	núcleo
+wheel	rueda
+photo	foto
+event	evento
+tank	tanque
+candidate	candidatos
+shoe	calzado
+storm	tormenta
+haven	refugio
+clip	clip
+leg	la pierna
+underwear	ropa interior
+table	tabla
+moment	momento
+leader	líder
+sun	sol
+journey	viaje
+tongue	lengua
+outfit	equipo
+non	no
+wall	la pared
+economy	economía
+farm	agrícolas
+universe	universo
+sub	sub
+pantyhose	pantys
+artwork	obras de arte
+artist	artista
+place	lugar
+town	ciudad
+crowd	multitud
+profession	profesión
+area	área de
+surface	superficie
+entity	entidad
+garden	jardín
+writer	escritor
+battery	de la batería
+secretary	secretario
+soul	alma
+wound	la herida
+crack	crack
+book	libro
+institution	institución
+dream	sueño
+father	padre
+computer	equipo
+hip	de la cadera
+finger	dedo
+interval	intervalo de
+mouth	la boca
+section	sección
+crystal	cristal
+box	cuadro
+phenomenon	fenómeno
+com	com
+aircraft	aeronaves
+printer	impresora
+door	puerta
+pre	pre
+edge	borde
+rock	rock
+camp	campamento
+guitar	guitarra
+word	la palabra
+corporation	corporación
+career	carrera
+cream	crema
+community	comunidad
+sailing	vela
+lifetime	toda la vida
+body	cuerpo
+image	imagen
+piano	piano
+curve	curva
+epidemic	epidemia
+era	época
+con	Con
+sequence	secuencia
+slide	diapositivas
+classroom	salón de clases
+culture	la cultura
+plate	placa
+head	la cabeza
+vehicle	vehículo
+grid	la red
+lawyer	abogado
+industry	la industria
+film	película
+self	auto
+student	estudiante
+ear	oreja
+pleasure	placer
+cup	taza
+mirror	espejo
+gel	gel
+village	pueblo
+device	dispositivo
+band	banda
+university	universidad
+fire	fuego
+pattern	patrón
+television	televisión
+thing	Lo
+button	botón
+ad	anuncios
+segment	segmento
+sport	el deporte
+tumor	del tumor
+reality	la realidad
+graph	gráfico
+rat	rata
+line	línea
+restaurant	restaurante
+park	parque
+bug	error
+phone	teléfono
+casino	casino
+calendar	calendario
+skin	la piel
+album	álbum
+professor	profesor
+road	por carretera
+football	fútbol
+bikini	bikini
+path	camino
+electron	de electrones
+stream	corriente
+field	campo
+incident	incidente
+election	elecciones
+hair	cabello
+lingerie	lencería
+teacher	maestro
+officer	oficial
+kitchen	cocina
+life	la vida
+TV	TV
+school	la escuela
+island	isla
+stuff	cosas
+topic	tema
+node	nodo
+transition	transición
+middle	media
+bed	cama
