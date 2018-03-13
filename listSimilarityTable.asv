@@ -1,0 +1,36 @@
+function tableList = listSimilarityTable(fvA, labelA, fvB, labelB)
+
+% List similarity between two sets of feature vectors in table
+% This code used similarity measurement AVGMAX used in the experiments of the following paper:
+% Bergsma, S. & Durme, B. Van, 2011. Learning bilingual lexicons using the visual similarity of labeled web images
+% By Usoneko, March 2018
+% A in rows, B in columns
+
+wordA = unique(labelA); na = length(wordA); 
+wordB = unique(labelB); nb = length(wordB); 
+
+simMatrix = zeros(na, nb);
+
+for i = 1:na
+    
+    matrixA = getLabelVectors(fvA, labelA, wordA(i));
+    
+    for j = 1:nb
+        
+        matrixB = getLabelVectors(fvB, labelB, wordB(j));
+        
+        simMatrix(i,j) = avgMaxCosSim(matrixA, matrixB);
+    end
+    
+end    
+    
+listB = wordB.';
+rowtab = ['lanA\lanB', listB];
+
+%tableList = array2table(simMatrix);
+simMatrix = [wordA, simMatrix];
+tableList = [rowtab; simMatrix];
+
+
+
+end

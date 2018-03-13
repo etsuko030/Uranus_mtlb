@@ -8,7 +8,6 @@ function avgsim = avgMaxCosSim(me, mf)
 % Bergsma, S. & Durme, B. Van, 2011. Learning bilingual lexicons using the visual similarity of labeled web images
 % By Usoneko, March 2018
 
-% cosine distance: pdist([u;v],'cosine');
 
 [rowE, colE] = size(me);
 [rowF, colF] = size(mf);
@@ -37,6 +36,6 @@ for i = 1:ee
 
 end
 
-avgsim = mean(avgsim); % compute average
+avgsim = mean(sim); % compute average
 
 end
