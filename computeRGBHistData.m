@@ -20,7 +20,7 @@ for i = 1:length(data.Files)
     
     I = readimage(data, i);
     go = rgbhist_mask(I.original, I.mask, nBin, nInd);
-    go = go/norm(go); % normalise
+%    go = go/norm(go); % normalise
     rgbHist = vertcat(rgbHist, go);
     
     waitbar(i/length(data.Files));

@@ -1,4 +1,4 @@
-function similarity = avgMaxCosSim(me, mf)
+function avgsim = avgMaxCosSim(me, mf)
 
 % Similarity between two sets of feature vectors with equal dimensions
 % For each vector in E, a best matching vector in F is found.
@@ -8,41 +8,43 @@ function similarity = avgMaxCosSim(me, mf)
 % Bergsma, S. & Durme, B. Van, 2011. Learning bilingual lexicons using the visual similarity of labeled web images
 % By Usoneko, March 2018
 
-% cosine distance: pdist([u;v],'cosine');
 
 [rowE, colE] = size(me);
 [rowF, colF] = size(mf);
 
 if (colE~=colF)
     error('Dimension not comparable');
-    break;
+    return;
 end
 
 ee = rowE;
 ff = rowF;
 
-avgsim = [];
+sim = [];
 
 for i = 1:ee
-
-    ve = me(i, :); % current vector E
     
     cdis = [];
+    ve = me(i, :); % current vector E
+%    assert(norm(ve)~=0, 'Vector magnitude (matrix E) equals zero.');
+    if norm(ve)==0
+        continue
+    end
+    
     for j = 1:ff
+ 
+        disp(['Current position i(E) = ', num2str(i), ', j(F) = ', num2str(j)]);
+        
         vf = mf(j, :);
+ %       assert(norm(vf)~=0, 'Vector magnitude (matrix F) equals zero.');
+        if norm(vf)~=0
         cdis = [cdis; pdist([ve;vf],'cosine')]; % cosine distance
     end
- 
-    avgsim = [avgsim; max(cdis)];
+    
+    sim = [sim; max(cdis)];
 
 end
 
-avgsi
+avgsim = mean(sim); % compute average
 
-end
-
-
-function dis = cosinedistance(va, vb)
-% compute cosine distance between two vectors
-    dis = pdist([a; b],'cosine');
 end

@@ -22,20 +22,38 @@ ff = rowF;
 
 sim = [];
 
-for i = 1:ee
+emptyI = 0;
 
-    ve = me(i, :); % current vector E
+for i = 1:ee
     
     cdis = [];
-    for j = 1:ff
-        vf = mf(j, :);
-        cdis = [cdis; pdist([ve;vf],'cosine')]; % cosine distance
+    ve = me(i, :); % current vector E
+%    assert(norm(ve)~=0, 'Vector magnitude (matrix E) equals zero.');
+    if norm(ve)==0
+        emptyI = emptyI + 1;
+        continue
     end
+    
+    emptyJ = 0;
+    for j = 1:ff
  
+        disp(['Current position i(E) = ', num2str(i), ', j(F) = ', num2str(j)]);
+        
+        vf = mf(j, :);
+        
+ %       assert(norm(vf)~=0, 'Vector magnitude (matrix F) equals zero.');
+        if norm(vf)~=0
+            cdis = [cdis; pdist([ve;vf],'cosine')]; % cosine distance
+        else
+            emptyJ = emptyJ +1;
+        end
+        
+    end
+    
     sim = [sim; max(cdis)];
 
 end
 
-avgsim = mean(sim); % compute average
+avgsim = mean([sim; zeros(emptyI, 1)]); % compute average (count value-invalid number as well)
 
 end
