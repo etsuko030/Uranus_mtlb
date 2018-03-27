@@ -72,6 +72,7 @@ answerTable = [];
             temp = wordB(index);
             answer = [answer; temp]; % add to top-5 list
             simRank(index) = [];
+            wordB(index) = [];
         end
         
         answerTable = [answerTable, answer];

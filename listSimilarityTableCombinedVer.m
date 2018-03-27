@@ -1,7 +1,6 @@
 function [tableList, answerMatrix, answerList] = listSimilarityTableCombinedVer(fvA, labelA, fvB, labelB)
 
-% List similarity between two sets of feature vectors in table
-% Special version to partially assert combined features (SIFT+Color)
+% List similarity between two sets of feature vectors in table (combined)
 % This code used similarity measurement AVGMAX used in the experiments of the following paper:
 % Bergsma, S. & Durme, B. Van, 2011. Learning bilingual lexicons using the visual similarity of labeled web images
 % By Usoneko, March 2018
@@ -74,6 +73,7 @@ answerTable = [];
             temp = wordB(index);
             answer = [answer; temp]; % add to top-5 list
             simRank(index) = [];
+            wordB(index) = [];
         end
         
         answerTable = [answerTable, answer];
@@ -88,8 +88,9 @@ function avgsim = avgMaxCosSim(me, mf)
 % For each vector in E, a best matching vector in F is found.
 % An average of cosine distance between a vector in E and its
 % best-match from F is returned.
-% For combined feature (SIFT + color) rule out SIFT=0 items
-
+% This code is for implementing similarity measurement AVGMAX used in the experiments of the following paper:
+% Bergsma, S. & Durme, B. Van, 2011. Learning bilingual lexicons using the visual similarity of labeled web images
+% By Usoneko, March 2018
 
 
 [rowE, colE] = size(me);
@@ -112,7 +113,7 @@ for i = 1:ee
     cdis = [];
     ve = me(i, :); % current vector E
 %    assert(norm(ve)~=0, 'Vector magnitude (matrix E) equals zero.');
-    if norm(ve(1:20000))==0 % SIFT part
+    if norm(ve)==0
         emptyI = emptyI + 1;
         continue
     end
@@ -125,7 +126,7 @@ for i = 1:ee
         vf = mf(j, :);
         
  %       assert(norm(vf)~=0, 'Vector magnitude (matrix F) equals zero.');
-        if norm(vf(1:20000))~=0 
+        if norm(vf)~=0
             cdis = [cdis; pdist([ve;vf],'cosine')]; % cosine distance
         else
             emptyJ = emptyJ +1;

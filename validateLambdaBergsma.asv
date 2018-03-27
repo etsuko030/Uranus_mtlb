@@ -1,0 +1,19 @@
+function lambdaList = validateLambdaBergsma(fvA1, fvA2, labelA, fvB1, fvB2, labelB, translation)
+
+% validate translation from A to B
+
+    wordA = unique(labelA); na = length(wordA); 
+    wordB = unique(labelB); nb = length(wordB); 
+    assert(length(translation)==na);
+    
+    for i = 0:0.1:1 % lambda0 
+        
+       [tableList, answerMatrix, answerList] = listSimilarityTableCombinedVer(horzcat(ftA1, ftA2*i), labelA, horzcat(ftB1, ftB2*i), labelB);
+        accuracy = comparingLabels(answerList(1,:), trueTranslations)/na;
+    end
+    
+end
+
+function numCorrect = comparingLabels(topAnswers, trueTranslations)
+
+end
