@@ -66,14 +66,14 @@ answerTable = [];
     for i = 1:length(wordA)
         
         simRank = matrix(:,i); % get columns (answer for A to B)
-        
+        wordlist = wordB; % create copy
         answer = [];
-        for j = 1:5  % get top-5 answers
+        for j = 1:length(wordB)  % get top answers
             [~, index] = max(simRank); % index for highest similarity word B
-            temp = wordB(index);
-            answer = [answer; temp]; % add to top-5 list
+            temp = wordlist(index);
+            answer = [answer; temp]; % add to list
             simRank(index) = [];
-            wordB(index) = [];
+            wordlist(index) = [];
         end
         
         answerTable = [answerTable, answer];
