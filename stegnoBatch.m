@@ -38,90 +38,104 @@ end
 
 for k = 1 : length(childName)
 
-    wb = waitbar(0, strcat('Processing folder "', childName(k), '"...'));
 %    disp(strcat('Processing folder "', childName(k), '"...'));
     
     iniLocation = char(strcat(imfolder, '\', childName(k), '\initial')); % destination: one{k}
     canLocation = char(strcat(imfolder, '\', childName(k), '\candidate')); % destination: two{k}
     
-    iniData = imageDatastore(iniLocation, 'FileExtensions', '.png'); % image locations
-    canData = imageDatastore(canLocation, 'FileExtensions', '.png');
-    
-    
-    % process single-object images
-    for i = 1 : length(iniData.Files)
+    if isFolderEmpty(iniLocation)==0
         
-        nowloc = iniData.Files(i);
-    	% get ID of the mask
-        [~, name, ~] = fileparts(char(nowloc));
-        ID = strrep(name, '-m-1', '');
-%        disp(ID);
-        % get original image by ID
-        originalName = strcat(imfolder, '\', childName(k), '\', ID, '.png');
-        originalImg = imread(char(originalName));
-        % get mask image
-        maskImg = imread(char(iniData.Files(i)));
-        % stegno and write file
-        saveName = char(strcat(one(k), '\', ID, '.png'));
-        stegnoMask(originalImg, maskImg, saveName);
-%        imshow(originalImg);
-%        imwrite(s, char(strcat(one(k), '\', ID, '.png')));
-        
-        clear nowloc;
-        clear name;
-        clear ID;
-        clear originalName;
-        clear originalImg;
-        clear maskImg;
-        clear saveName;
-        
-        waitbar(i/(length(iniData.Files)+length(canData.Files)));
-    end
-    
-    
-    % process multiple-objects images
-    
-    for i = 1 : length(canData.Files)
-              
-        nowloc = canData.Files(i);
-    	% get ID of the mask
-        [~, name, ~] = fileparts(char(nowloc));
-        ID = name(1:3);     % first 3 digits are numbers
-        newID = strrep(name, '-m', '');   % xxx-m-x  ->  xxx-x
-%        disp(ID);
-        % get original image by ID
-        originalName = strcat(imfolder, '\', childName(k), '\', ID, '.png');
-        originalImg = imread(char(originalName));
-        % get mask image
-        maskImg = imread(char(canData.Files(i)));
-        % stegno and write file
-        saveName = char(strcat(two(k), '\', newID, '.png'));
-        stegnoMask(originalImg, maskImg, saveName);
-%        imshow(originalImg);
-%        imwrite(s, saveName);
+        iniData = imageDatastore(iniLocation, 'FileExtensions', '.png'); % image locations
+        wb = waitbar(0, strcat('Processing folder "', childName(k), '"single...'));
 
-        clear nowloc;
-        clear name;
-        clear ID;
-        clear originalName;
-        clear originalImg;
-        clear maskImg;
-        clear saveName;
+            % process single-object images
+        for i = 1 : length(iniData.Files)
         
-        waitbar((i+length(iniData.Files))/(length(iniData.Files)+length(canData.Files)));
+            nowloc = iniData.Files(i);
+    	%   get ID of the mask
+            [~, name, ~] = fileparts(char(nowloc));
+            ID = strrep(name, '-m-1', '');
+%           disp(ID);
+        %   get original image by ID
+            originalName = strcat(imfolder, '\', childName(k), '\', ID, '.png');
+            originalImg = imread(char(originalName));
+        %   get mask image
+            maskImg = imread(char(iniData.Files(i)));
+        %   stegno and write file
+            saveName = char(strcat(one(k), '\', ID, '.png'));
+            stegnoMask(originalImg, maskImg, saveName);
+%           imshow(originalImg);
+%           imwrite(s, char(strcat(one(k), '\', ID, '.png')));
+        
+            clear nowloc;
+            clear name;
+            clear ID;
+            clear originalName;
+            clear originalImg;
+            clear maskImg;
+            clear saveName;
+        
+            waitbar(i/length(iniData.Files));
+        end
+        clear iniLocation;
+        clear iniData;
+        close(wb);
     end
+    
+    
+    if isFolderEmpty(canLocation)==0
+        
+        canData = imageDatastore(canLocation, 'FileExtensions', '.png');
+        
+            % process multiple-objects images
+        wb = waitbar(0, strcat('Processing folder "', childName(k), '" multiple...'));
+        for i = 1 : length(canData.Files)
+              
+            nowloc = canData.Files(i);
+            % get ID of the mask
+            [~, name, ~] = fileparts(char(nowloc));
+            ID = name(1:3);     % first 3 digits are numbers
+            newID = strrep(name, '-m', '');   % xxx-m-x  ->  xxx-x
+%           disp(ID);
+            % get original image by ID
+            originalName = strcat(imfolder, '\', childName(k), '\', ID, '.png');
+            originalImg = imread(char(originalName));
+            % get mask image
+            maskImg = imread(char(canData.Files(i)));
+            % stegno and write file
+            saveName = char(strcat(two(k), '\', newID, '.png'));
+            stegnoMask(originalImg, maskImg, saveName);
+%           imshow(originalImg);
+%           imwrite(s, saveName);
+
+            clear nowloc;
+            clear name;
+            clear ID;
+            clear originalName;
+            clear originalImg;
+            clear maskImg;
+            clear saveName;
+        
+            waitbar(i/length(canData.Files));
+        end
+        
+    clear canLocation;
+    clear canData;
+    close(wb);
+    end
+    
+
+    
+    
+
     
 %    iniPattern = sprintf('%s/*-m-1.png', imLocation(k)); % needs to be cleared
 %    initialList = dir(iniPattern); % needs to be cleared
 
 %   candidateList = dir(canPattern); % needs to be cleared
 
-    clear iniLocation;
-    clear canLocation;
-    clear iniData;
-    clear canData;
+
     
-    close(wb);
 end
 
 

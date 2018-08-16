@@ -1,7 +1,7 @@
 function zernikeMomentData = computeZernikeMomentData(data)
 
 % Compute invariant moments matrix for imagedatastore
-% each row is 7-dimension vector for one binary image
+% each row is 36-dimension vector for one binary image
 
 zMoments = [];
 

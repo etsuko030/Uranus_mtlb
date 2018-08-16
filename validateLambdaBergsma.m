@@ -12,13 +12,13 @@ function [lambdaList, resultList] = validateLambdaBergsma(fvA1, fvA2, labelA, fv
     for i = 0.1:0.1:1 % lambda0 
         
        [tableList, answerMatrix, answerList] = listSimilarityTableCombinedVer(horzcat(fvA1, fvA2*i), labelA, horzcat(fvB1, fvB2*i), labelB);
-       resultList = [resultList; struct(lambda, i, table, tableList, matrix, answerMatrix, answers, answerList)]; %
+       resultList = [resultList; struct('lambda', i, 'table', tableList, 'matrix', answerMatrix, 'answers', answerList)]; %
        
 %       accuracy = comparingLabels(answerList(1,:), translation)/na;
 %       result = [i, accuracy];
 %       lambdaList = [lambdaList; result];
 
-       mrr = computeMRR(rankedAnswers, translation); %
+       mrr = computeMRR(answerList, translation); %
        mrres = [i, mrr]; %
        lambdaList = [lambdaList; mrres]; %
     end
@@ -26,7 +26,7 @@ function [lambdaList, resultList] = validateLambdaBergsma(fvA1, fvA2, labelA, fv
 end
 
 function numCorrect = comparingLabels(topAnswers, trueTranslations)
-    tf = contains(cellstr(trueTranslations), cellstr(topAnswers));
+    tf = contains(string(trueTranslations), string(topAnswers));
     numCorrect = sum(tf);
 end
 
@@ -41,7 +41,7 @@ function mrr = computeMRR(rankedAnswers, trueTranslations)
     for i = 1:na
         ranklist = rankedAnswers(:,i);
         for j = 1:nb
-            if contains(cellstr(trueTranslations(i)), ranklist(j))
+            if contains(string(trueTranslations(i)), string(ranklist(j)))
                 break;
             end
         end
